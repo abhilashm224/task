@@ -1,4 +1,9 @@
 import { Injectable } from '@angular/core';
+import {Observable} from 'rxjs/Rx';
+
+// Import RxJs required methods
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 /* let todos = [
   { _id: 1, title: 'Install Angular CLI', isDone: true },

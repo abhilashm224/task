@@ -1,10 +1,10 @@
-import { LnpAppPage } from './app.po';
+import { TaskManagePage } from './app.po';
 
 describe('lnp-app App', () => {
-  let page: LnpAppPage;
+  let page: TaskManagePage;
 
   beforeEach(() => {
-    page = new LnpAppPage();
+    page = new TaskManagePage();
   });
 
   it('should display message saying app works', () => {

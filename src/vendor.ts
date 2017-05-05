@@ -11,4 +11,4 @@ import 'rxjs';
 // You can import js, ts, css, sass, ...
 import 'bootstrap/dist/css/bootstrap.css';
 //import 'bootstrap/dist/css/bootstrap-theme.css';
-import './assets/css/bootstrap-theme.css';
+//import './assets/css/bootstrap-theme.css';

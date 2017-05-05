@@ -1,3 +1,12 @@
+.task-form {
+    padding: 50px;
+}
+.taskName {
+    width: 300px;
+    font-size: 1em;
+    text-align: left;
+}
+/* 
 .task-list {
     list-style: none;
 }
@@ -13,12 +22,7 @@
     border-radius: 50px;
     text-align: center;
 }
-.taskName {
-    width: 200px;
-    float: left;
-    font-size: 1em;
-    text-align: left;
-}
+
 .taskHeader {
     height: 100px;
     width : 100%;
@@ -31,3 +35,5 @@
 .disableInput {
     pointer-events:none;
 }
+
+*/

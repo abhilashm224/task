@@ -1,62 +1,53 @@
-<h1>Task Manager</h1>
-<div class="taskHeader">
-    <input class="new-todo"
-           placeholder="Add your task here..."
-           [(ngModel)]="newTodo"
-           autofocus>
+<div class="container">
+  <h1 class="text-center">Task Manager</h1>
+  <form class="form-inline task-form text-center">
+    <div class="form-group">
+      <label for="newTodo">Task Name</label>
+      <input type="text" 
+          class="form-control input-lg" id="newTodo" placeholder="Add your task here..." name="newTodo" [(ngModel)]="newTodo"
+        autofocus>
+    </div>
+    <button  class="btn btn-primary btn-lg" (click)="addTodo()">Add Task</button>
+  </form>
 
-<button (click) = "addTodo()" > Add Task </button>
-</div>
 
-<div>
-    <ul class="task-list">
+  <div>
+    <ul class="list-group">
+      <li class="list-group-item active">
+        <span class="badge">{{taskCount}}</span> Existing Tasks
+      </li>
+      <li *ngFor="let todo of todos;let i = index" class="list-group-item">
 
-      <li *ngFor="let todo of todos;let i = index">
-        <div class="view">
-          <input 
-                #updatedTodo
-                class="taskName" 
-                readonly = "true"
-                id = "{{'taskName'+ i}}"
-                [value]="todo.title"
-                (keyup.escape)="taskNameEscape($event)"
-                (blur)="updateTodo(updatedTodo.value, i)"
-                (keyup.enter)="updateTodo(updatedTodo.value, i)"
-                (dblclick)="taskNameDblClick($event)">
-          <input name="{{'status'+i}}"  type="radio" (click) = "statusChecked('waiting',i)" [checked]="todo.status == 'waiting'">
+        <input #updatedTodo class="taskName" readonly="true" id="{{'taskName'+ i}}" [value]="todo.title" (keyup.escape)="taskNameEscape($event)"
+          (blur)="updateTodo(updatedTodo.value, i)" (keyup.enter)="updateTodo(updatedTodo.value, i)" (dblclick)="taskNameDblClick($event)">
+        <div class="pull-right">
+          <input name="{{'status'+i}}" type="radio" (click)="statusChecked('waiting',i)" [checked]="todo.status == 'waiting'">
           <label class="lblStatus">waiting</label>
-          <input name="{{'status'+i}}"  type="radio" (click) = "statusChecked('inProgress',i)" [checked]="todo.status == 'inProgress'">
+          <input name="{{'status'+i}}" type="radio" (click)="statusChecked('inProgress',i)" [checked]="todo.status == 'inProgress'">
           <label class="lblStatus">In Progress</label>
-          <input name="{{'status'+i}}"  type="radio" (click) = "statusChecked('completed',i)" [checked]="todo.status == 'completed'">
-           <label class="lblStatus">Completed</label>
-          <button class="deleteBtn" (click)="destroyTodo(i)">Delete</button>
+          <input name="{{'status'+i}}" type="radio" (click)="statusChecked('completed',i)" [checked]="todo.status == 'completed'">
+          <label class="lblStatus">Completed</label>
+          <button type="button" class="btn btn-default"  (click)="destroyTodo(i)">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>   
+          </button>
         </div>
-        <!--
-        <input class="edit"
-               #updatedTodo
-               [value]="todo.title"
-               (blur)="updateTodo(todo, updatedTodo.value)"
-               (keyup.escape)="todo.editing = false"
-               (keyup.enter)="updateTodo(todo, updatedTodo.value)">
-               -->
       </li>
     </ul>
-</div>
-<div>
-    <ul class="filters">
-      <li>
+  </div>
+  <div>
+    <ul class="list-inline">
+      <li class="list-group-item ">
         <a [routerLink]="['']" [class.selected]="path === 'all'">All</a>
       </li>
-      <li>
+      <li class="list-group-item ">
         <a [routerLink]="['/waiting']" [class.selected]="path === 'active'">Waiting</a>
       </li>
-     <li>
+      <li class="list-group-item ">
         <a [routerLink]="['/inProgress']" [class.selected]="path === 'active'">In Progress</a>
       </li>
-      <li>
+      <li class="list-group-item">
         <a [routerLink]="['/completed']" [class.selected]="path === 'completed'">Completed</a>
       </li>
     </ul>
-
-=
+  </div>
 </div>

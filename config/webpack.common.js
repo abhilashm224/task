@@ -23,16 +23,16 @@ module.exports = {
         test: /\.ts$/,
         loaders: [
           { // MAKE SURE TO CHAIN VANILLA JS CODE, I.E. TS COMPILATION OUTPUT.
-              loader: 'ng-router-loader',
-              options: {
-                loader: 'async-import',
-                genDir: 'compiled',
+            loader: 'ng-router-loader',
+            options: {
+              loader: 'async-import',
+              genDir: 'compiled',
               //  aot: AOT
-              }
-            },
-          'awesome-typescript-loader', 
+            }
+          },
+          'awesome-typescript-loader',
           'angular2-template-loader',
-          ]
+        ]
       },
       {
         test: /\.html$/,
@@ -45,7 +45,8 @@ module.exports = {
       {
         test: /\.css$/,
         exclude: helpers.root('src', 'app'),
-        loader: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader?sourceMap' })
+        loader: ExtractTextPlugin.extract({ 
+          fallbackLoader: 'style-loader', loader: 'css-loader?sourceMap' })
       },
       {
         test: /\.css$/,
@@ -90,13 +91,23 @@ module.exports = {
         name: ['polyfills', 'vendor'].reverse()
       }),
 
-
-
-
-
-
     new HtmlWebpackPlugin({
-      template: 'src/index.html'
+    template: 'src/index.html',
+    minify   : {
+    html5                          : true,
+    collapseWhitespace             : true,
+    minifyCSS                      : true,
+    minifyJS                       : true,
+    minifyURLs                     : false,
+    removeAttributeQuotes          : true,
+    removeComments                 : true,
+    removeEmptyAttributes          : true,
+    removeOptionalTags             : true,
+    removeRedundantAttributes      : true,
+    removeScriptTypeAttributes     : true,
+    removeStyleLinkTypeAttributese : true,
+    useShortDoctype                : true
+  }
     }),
     
       /*

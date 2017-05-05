@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class LnpAppPage {
+export class TaskManagePage {
   navigateTo() {
     return browser.get('/');
   }

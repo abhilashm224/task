@@ -4,14 +4,13 @@ import { ActivatedRoute } from '@angular/router';
 import { TmService } from './tm.service';
 
 @Component({
-  selector: 'app-todo',
+  selector: 'task-manager',
   templateUrl: './tm.component.html',
-  styleUrls: ['./tm.component.css'],
-  providers: [TmService]
+  styleUrls: ['./tm.component.css']
 })
 export class TmComponent implements OnInit {
   private todos;
-  private activeTasks;
+  private taskCount;
   private newTodo;
   private path;
 
@@ -37,7 +36,7 @@ export class TmComponent implements OnInit {
   getTodos(query = ''){
     return this.todoService.get(query).then(todos => {
       this.todos = todos;
-      this.activeTasks = this.todos.filter(todo => todo.completed).length;
+      this.taskCount = this.todos.length;
     });
   }
 statusChecked (newValue,id) {
@@ -46,8 +45,10 @@ statusChecked (newValue,id) {
     });
 }
   addTodo(){
+    let taskName = this.newTodo.trim();
+    if(taskName) {
     let task = { 
-            title: this.newTodo, 
+            title: taskName, 
             status: 'waiting'    //default status is 'waiting'
           }
     this.todoService.add(task).then(() => {
@@ -55,6 +56,7 @@ statusChecked (newValue,id) {
     }).then(() => {
       this.newTodo = ''; // clear input form value
     });
+    }
   }
 
   updateTodo(newValue , id) {
