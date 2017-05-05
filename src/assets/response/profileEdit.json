@@ -1,0 +1,41 @@
+{
+  "data": 
+    {
+    	"memberreference" : "MEM000012",
+      "employmentreference":"1234",
+      "planrefno":"sch/001",
+    	"employerreference":"1234",
+        "title":"Mr",
+        "firstname":"John",
+        "middlename":"",
+        "lastname":"Doe",
+        "taxidentifier":"abcdef",
+        "alternatereference":"",
+        "enrolmenttype":"Voluntary",
+        "enrollmentdate":"20/01/2016",
+        "paygroup":"Paygroup-1",
+        "paymentsource":"paymentsource-1",
+        "maritalstatus":"Single",
+        "dob":"03/12/1974",
+        "preferredemail":"",
+        "alternateemail":"",
+        "country":"UK",
+	    "state":"Cambridgeshire",
+	    "city": "Peterborough",
+	    "zipCd":"PE26FY",
+	    "streetName1":"Percival Street",
+	    "streetName2":"",
+        "languagepreference":"",
+        "salary":"1000.00",
+        "currency":"GBP",
+        "memstatus":"Active",
+        "exitdate":""
+    } ,
+  "errors":[{
+	"errorcode":"",
+	"parameters":[],
+	"applicableField":"",
+	"errorDescription": ""
+	}	
+]
+}

@@ -1,0 +1,20 @@
+{
+  "errors": [
+    {
+      "errorCode": "0",
+      "parameters": [
+        "account number"
+      ],
+      "applicableField": "contrAccountNumber",
+      "errorDescription": "account number name is incorrect"
+    }
+  ],
+  "data": [
+    {
+      "tpaLegCustNo": "40",
+      "tpaBancsCustNo": "20",
+      "orgDelegateName": "Katherene Pearson",
+      "effectiveTill": "21-03-2017"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "errors": [
+    {
+      "parameters": [],
+      "applicableField": "",
+      "errorDescription": ""
+    }
+  ],
+  "data": {
+    "completionPercentage": "70",
+    "employerRef": "ABCD1234",
+    "employerTIN": "dddd",
+    "employerNameFull": "Abcd xyz",
+    "companySize": "40",
+    "stagingDate": "20-05-2016",
+    "employeeStrength": "100-650",
+    "lineOfBusiness": "Manufacturing",
+    "infoProvidedBy": "Website",
+    "marketingCommAllowed": "Y",
+    "planName": "Group Pension ABC",
+    "planCode": "GRP-ABC",
+    "pcBancsCustNo": "T12345678",
+    "pcTitle": "Mr",
+    "pcFirstName": "Ros",
+    "pcMiddleName": "Juvan",
+    "pcSurname": "Taylor",
+    "pcEmailId": "ros.taylor@hotmail.com",
+    "pcCountry": "UK",
+    "pcState": "Cambridgeshire",
+    "pcCity": "Peterborough",
+    "pcZipCd": "PE26FY",
+    "pcStreetName1": "Percival Street",
+    "pcStreetName2": "",
+    "pcJobTitle": "Director",
+    "pcPhone": "+441732471234"
+  }
+}

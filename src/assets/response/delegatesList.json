@@ -1,0 +1,57 @@
+{
+    "errors": [
+        {
+            "errorCode": "0",
+            "parameters": [
+                "account number"
+            ],
+            "applicableField": "delegateAccountNumber",
+            "errorDescription": "account number name is incorrect"
+        }
+    ],
+    "data": [
+        {
+            "completionPercentage": "20",
+            "delegate": [
+                {
+                    "indDelMidName": "indDelMidName_1 ",
+                    "indDelLanguage": "indDelLanguage_1",
+                    "indDelRelationshipCd": "indDelRelationshipCd_1",
+                    "delegateEffTillDt": "22-03-2018",
+                    "indDelJobTitle": "indDelJobTitle_1",
+                    "indDelContactNo": "indDelContactNo_1",
+                    "tpaBancsCustNo": "tpaBancsCustNo_1",
+                    "indDelEmailId": "abc@gmail.com",
+                    "indDelFirstName": "indDelFirstName_1",
+                    "delegateRole": "delegateRole_1",
+                    "indDelTitle": "Mr",
+                    "delegateId": "1",
+                    "delegateType": "IND",
+                    "orgDelegateName": "orgDelegateName_1",
+                    "indDelLastName": "indDelLastName_1",
+                    "status": "ACTIVE",
+                    "effectiveFrom": "21-03-2017"
+                },
+                {
+                    "indDelMidName": "indDelMidName_2",
+                    "indDelLanguage": "indDelLanguage_2",
+                    "indDelRelationshipCd": "indDelRelationshipCd_2",
+                    "delegateEffTillDt": "22-03-2019",
+                    "indDelJobTitle": "indDelJobTitle_2",
+                    "indDelContactNo": "indDelContactNo_2",
+                    "tpaBancsCustNo": "tpaBancsCustNo_2 ",
+                    "indDelEmailId": "bbc@gmail.com",
+                    "indDelFirstName": "indDelFirstName_2",
+                    "delegateRole": "delegateRole_2",
+                    "indDelTitle": "Ms",
+                    "delegateId": "2",
+                    "delegateType": "ORG",
+                    "orgDelegateName": "orgDelegateName_2",
+                    "indDelLastName": "indDelLastName_2",
+                    "status": "ACTIVE",
+                    "effectiveFrom": "22-03-2017"
+                }
+            ]
+        }
+    ]
+}

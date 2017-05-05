@@ -1,0 +1,62 @@
+<h1>Task Manager</h1>
+<div class="taskHeader">
+    <input class="new-todo"
+           placeholder="Add your task here..."
+           [(ngModel)]="newTodo"
+           autofocus>
+
+<button (click) = "addTodo()" > Add Task </button>
+</div>
+
+<div>
+    <ul class="task-list">
+
+      <li *ngFor="let todo of todos;let i = index">
+        <div class="view">
+          <input 
+                #updatedTodo
+                class="taskName" 
+                readonly = "true"
+                id = "{{'taskName'+ i}}"
+                [value]="todo.title"
+                (keyup.escape)="taskNameEscape($event)"
+                (blur)="updateTodo(updatedTodo.value, i)"
+                (keyup.enter)="updateTodo(updatedTodo.value, i)"
+                (dblclick)="taskNameDblClick($event)">
+          <input name="{{'status'+i}}"  type="radio" (click) = "statusChecked('waiting',i)" [checked]="todo.status == 'waiting'">
+          <label class="lblStatus">waiting</label>
+          <input name="{{'status'+i}}"  type="radio" (click) = "statusChecked('inProgress',i)" [checked]="todo.status == 'inProgress'">
+          <label class="lblStatus">In Progress</label>
+          <input name="{{'status'+i}}"  type="radio" (click) = "statusChecked('completed',i)" [checked]="todo.status == 'completed'">
+           <label class="lblStatus">Completed</label>
+          <button class="deleteBtn" (click)="destroyTodo(i)">Delete</button>
+        </div>
+        <!--
+        <input class="edit"
+               #updatedTodo
+               [value]="todo.title"
+               (blur)="updateTodo(todo, updatedTodo.value)"
+               (keyup.escape)="todo.editing = false"
+               (keyup.enter)="updateTodo(todo, updatedTodo.value)">
+               -->
+      </li>
+    </ul>
+</div>
+<div>
+    <ul class="filters">
+      <li>
+        <a [routerLink]="['']" [class.selected]="path === 'all'">All</a>
+      </li>
+      <li>
+        <a [routerLink]="['/waiting']" [class.selected]="path === 'active'">Waiting</a>
+      </li>
+     <li>
+        <a [routerLink]="['/inProgress']" [class.selected]="path === 'active'">In Progress</a>
+      </li>
+      <li>
+        <a [routerLink]="['/completed']" [class.selected]="path === 'completed'">Completed</a>
+      </li>
+    </ul>
+
+=
+</div>
