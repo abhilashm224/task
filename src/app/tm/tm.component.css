@@ -1,11 +1,7 @@
 .task-form {
     padding: 50px;
 }
-.taskName {
-    width: 300px;
-    font-size: 1em;
-    text-align: left;
-}
+
 .list-group-item a {
     color: #000;
     font-weight: bold;

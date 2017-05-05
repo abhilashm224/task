@@ -3,7 +3,6 @@ import { Routes, RouterModule , PreloadAllModules} from '@angular/router';
 
 import { TmComponent } from './tm/tm.component';
 
-declare let System: any;
 const ROUTES: Routes = [
   { path: '', component: TmComponent },
   { path: ':status', component: TmComponent }

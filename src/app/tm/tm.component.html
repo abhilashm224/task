@@ -1,5 +1,6 @@
 <div class="container">
   <h1 class="text-center">Task Manager</h1>
+  <!-- Task add form starts -->
   <form class="form-inline task-form text-center">
     <div class="form-group">
       <label for="newTask">Task Name</label>
@@ -9,9 +10,10 @@
     </div>
     <button  class="btn btn-primary btn-lg" (click)="addTask()">Add Task</button>
   </form>
-
+  <!-- Task add form ends -->
 
   <div>
+    <!-- Task lists starts -->
     <ul class="list-group">
       <li class="list-group-item active">
         <span class="badge">{{taskCount}}</span>  Tasks List
@@ -39,14 +41,16 @@
               [checked]="task.status == 'completed'">
 
           <label class="lblStatus">Completed</label>
-          <button type="button" class="btn btn-default"  (click)="destroyTask(task.id)">
-            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>   
+          <button type="button" class="btn btn-danger"  (click)="destroyTask(task.id)">
+            X   
           </button>
         </div>
       </li>
     </ul>
+    <!-- Task lists starts -->
   </div>
   <div>
+    <!-- Footer links starts -->
     <ul class="list-inline">
       <li class="list-group-item" [class.active]="status === ''">
         <a [routerLink]="['']">All</a>
@@ -61,6 +65,7 @@
         <a [routerLink]="['/completed']">Completed</a>
       </li>
     </ul>
+    <!-- Footer links ends -->
   </div>
 
     <button type="button" class="btn btn-default"  (click)="destroyAllTask()">
