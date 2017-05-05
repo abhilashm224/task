@@ -21,11 +21,23 @@
           {{task.title}}
         </label>
         <div class="pull-right">
-          <input name="{{'status'+task.id}}" type="radio" (click)="changeStatus('waiting',task.id)" [checked]="task.status == 'waiting'">
+          <input 
+              name="{{'status'+task.id}}" 
+              type="radio" 
+              (click)="changeStatus('waiting',task.id)" 
+              [checked]="task.status == 'waiting'">
           <label class="lblStatus">waiting</label>
-          <input name="{{'status'+task.id}}" type="radio" (click)="changeStatus('inProgress',task.id)" [checked]="task.status == 'inProgress'">
+          <input name="{{'status'+task.id}}" 
+              type="radio" 
+              (click)="changeStatus('inProgress',task.id)" 
+              [checked]="task.status == 'inProgress'">
           <label class="lblStatus">In Progress</label>
-          <input name="{{'status'+task.id}}" type="radio" (click)="changeStatus('completed',task.id)" [checked]="task.status == 'completed'">
+          <input 
+              name="{{'status'+task.id}}" 
+              type="radio" 
+              (click)="changeStatus('completed',task.id)" 
+              [checked]="task.status == 'completed'">
+
           <label class="lblStatus">Completed</label>
           <button type="button" class="btn btn-default"  (click)="destroyTask(task.id)">
             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>   
