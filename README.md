@@ -4,19 +4,19 @@ This project is developed in Angular2 and used webpack as module bundler.
 
 For styling used bootstrap.
 
-# Why Angular
+## Why Angular
 
 Angular applications are faster, more scalable and more modern.
 
 Angular was written in TypeScript, a superset of JavaScript that implements many new ES2016+ features.
 
-# Why Webpack
+## Why Webpack
 
 webpack is a module bundler. Its main purpose is to bundle JavaScript files for usage in a browser.
 
 It is also capable of transforming, bundling, or packaging just about any resource or asset
 
-# Set up the Development Environment 
+## Set up the Development Environment 
 
 1. Install Node.js and npm if they are not already installed in your machine.
 

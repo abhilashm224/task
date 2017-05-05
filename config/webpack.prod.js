@@ -21,24 +21,15 @@ module.exports = webpackMerge(commonConfig, {
     new webpack.optimize.UglifyJsPlugin({ 
       beautify: false,
       minimize: true,
-      sourceMap: false,
-      mangle: false,
-	compress: { screw_ie8: false },
-	mangle: { screw_ie8: false },
-	output: { screw_ie8: false }
-     /* mangle: {
+      mangle: {
         screw_ie8: true,
         keep_fnames: true
       },
       compress: {
-        screw_ie8: true
+        screw_ie8: true,
+        drop_console: true
       },
-      comments: false,
-      
-      //sourceMap: true,
-      compress: {
-         drop_console: true
-      },*/
+      comments: false
     }),
     new ExtractTextPlugin('[name].css'),
     new webpack.DefinePlugin({
