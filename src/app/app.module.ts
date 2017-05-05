@@ -7,13 +7,11 @@ import { AppRoutingModule } from './app.routes';
 import { AppComponent } from './app.component';
 import { TmComponent } from './tm/tm.component';
 import { TmService } from './tm/tm.service';
-import { NoContentComponent } from './no-content/no-content.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TmComponent,
-    NoContentComponent
   ],
   imports: [
     BrowserModule,

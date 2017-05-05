@@ -1,81 +1,64 @@
 import { Injectable } from '@angular/core';
-import {Observable} from 'rxjs/Rx';
 
-// Import RxJs required methods
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
-
-/* let todos = [
-  { _id: 1, title: 'Install Angular CLI', isDone: true },
-  { _id: 2, title: 'Style app', isDone: true },
-  { _id: 3, title: 'Finish service functionality', isDone: false },
-  { _id: 4, title: 'Setup API', isDone: false },
-];
-*/
-
-//let todos = [];
-
-let todos = JSON.parse(localStorage.getItem('todos')) || [];
-
+let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
 @Injectable()
 export class TmService {
 
   constructor() { }
 
+/* method to fetch tasks based on status */
+
   get(query = ''){
     return new Promise(resolve => {
-      var data;
+      let data;
 
       if(query === ''){
-         data = todos;
+         data = tasks;
       } else {
-        var status =  query;
-        data = todos.filter(todo =>  todo.status === query
-        );
+        let status =  query;
+        data = tasks.filter(task =>  task.status === query );
       }
       resolve(data);
     });
   }
 
+/* add task method*/
+
   add(data) {
     return new Promise(resolve => {
-      todos.push(data);
-      localStorage.setItem('todos', JSON.stringify(todos))
+      tasks.push(data);
+      localStorage.setItem('tasks', JSON.stringify(tasks));
       resolve(data);
     });
   }
 
-  updateTaskName(val,index) {
+/* method to update status of task based on task id*/
+  updateStatus(val,id) {
     return new Promise(resolve => {
-      //let index = todos.findIndex(todo => todo._id === data._id);
-      todos[index].title = val;
-      localStorage.setItem('todos', JSON.stringify(todos))
-      resolve(todos);
-    });
-  }
-  updateStatus(val,index) {
-    return new Promise(resolve => {
-      //let index = todos.findIndex(todo => todo._id === data._id);
-      todos[index].status = val;
-      localStorage.setItem('todos', JSON.stringify(todos))
-      resolve(todos);
-    });
-  }
-  delete(id) {
-    return new Promise(resolve => {
-      //let index = todos.findIndex(todo => todo._id === id);
-      todos.splice(id, 1);
-      localStorage.setItem('todos', JSON.stringify(todos))
-      resolve(true);
+      let index = tasks.findIndex(task => task.id === id);
+      tasks[index].status = val;
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+      resolve(tasks);
     });
   }
 
-  deleteCompleted() {
+  /* method to remove task based on task id*/
+
+  delete(id) {
     return new Promise(resolve => {
-      todos = todos.filter(todo => !todo.isDone);
-      //localStorage.setItem('todos', JSON.stringify(todos))
-      resolve(todos);
+      tasks = tasks.filter(task => task.id !== id);
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+      resolve(true);
+    });
+  }
+  /* method to remove all tasks */
+
+  deleteAllTasks() {
+    return new Promise(resolve => {
+      tasks = [];
+      localStorage.setItem('tasks', JSON.stringify(tasks)); 
+      resolve(tasks);
     });
   }
 }

@@ -11,9 +11,7 @@ export class AppComponent {
 
   constructor(
       private router: Router
-    ){
-      console.log('URL is    ',this.router.url);
-    }
+    ){}
    ngOnInit() {
 
   }

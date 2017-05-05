@@ -4,78 +4,78 @@ import { ActivatedRoute } from '@angular/router';
 import { TmService } from './tm.service';
 
 @Component({
-  selector: 'task-manager',
+  selector: 'task-comp',
   templateUrl: './tm.component.html',
   styleUrls: ['./tm.component.css']
 })
 export class TmComponent implements OnInit {
-  private todos;
-  private taskCount;
-  private newTodo;
-  private path;
+  private tasks;
+  private taskCount;   
+  private newTask;
+  private status;
 
   constructor(
-    private todoService: TmService, 
+    private tmService: TmService,   //service dependency injection
     private route: ActivatedRoute
   ) { }
 
+/* component init method */
+
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.path = params['status'];
-      this.getTodos(this.path);
+      this.status = (params['status'] != undefined) ? params['status'] : '';   //getting filter status
+      this.getTasks(this.status);
     });
   }
-  taskNameEscape(e) {
-    let id = e.currentTarget.getAttribute('id');
-    document.getElementById(id)['readOnly'] =true;
-  }
-  taskNameDblClick(e) {
-    let id = e.currentTarget.getAttribute('id');
-    document.getElementById(id)['readOnly'] =false;
-  }
-  getTodos(query = ''){
-    return this.todoService.get(query).then(todos => {
-      this.todos = todos;
-      this.taskCount = this.todos.length;
+
+  /* get tasks based on status */
+
+  getTasks(query = ''){
+    return this.tmService.get(query).then(task => {
+      this.tasks = task;
+      this.taskCount = this.tasks.length;
     });
   }
-statusChecked (newValue,id) {
-    return this.todoService.updateStatus(newValue ,id).then(() => {
-      return this.getTodos();
+
+/* method to update task status */
+
+changeStatus (newStatus,id) {
+    return this.tmService.updateStatus(newStatus ,id).then(() => {
+      return this.getTasks(this.status);
     });
 }
-  addTodo(){
-    let taskName = this.newTodo.trim();
+
+/* method to add a task*/
+
+  addTask(){
+    let taskName = this.newTask.trim();
     if(taskName) {
     let task = { 
+            id : Math.floor(Math.random() * 1000),
             title: taskName, 
-            status: 'waiting'    //default status is 'waiting'
+            status: 'waiting'    //setting default status as 'waiting'
           }
-    this.todoService.add(task).then(() => {
-      return this.getTodos();
+    this.tmService.add(task).then(() => {
+      return this.getTasks(this.status);
     }).then(() => {
-      this.newTodo = ''; // clear input form value
+      this.newTask = ''; // clear input form value
     });
     }
   }
 
-  updateTodo(newValue , id) {
-    //todo.title = newValue;
-    return this.todoService.updateTaskName(newValue,id).then(() => {
-      //todo.editing = false;
-      return this.getTodos();
+/* method to delete a task */
+
+  destroyTask(id){
+    this.tmService.delete(id).then(() => {
+      return this.getTasks(this.status);
     });
   }
 
-  destroyTodo(id){
-    this.todoService.delete(id).then(() => {
-      return this.getTodos();
-    });
-  }
+/* method to delete all tasks */
 
-  clearCompleted() {
-    this.todoService.deleteCompleted().then(() => {
-      return this.getTodos();
+  destroyAllTask(){
+    this.tmService.deleteAllTasks().then(() => {
+      return this.getTasks();
     });
   }
 }

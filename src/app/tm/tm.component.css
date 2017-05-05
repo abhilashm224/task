@@ -6,34 +6,7 @@
     font-size: 1em;
     text-align: left;
 }
-/* 
-.task-list {
-    list-style: none;
+.list-group-item a {
+    color: #000;
+    font-weight: bold;
 }
-.task-list li {
-    width: 100%;
-    float: left;
-    border: 1px solid black;
-}
-.task-list li .deleteBtn {
-    width: 60px;
-    font-size: 1em;
-    color: red;
-    border-radius: 50px;
-    text-align: center;
-}
-
-.taskHeader {
-    height: 100px;
-    width : 100%;
-    float: left;
-}
-
-.filters li {
-	list-style: none;
-}
-.disableInput {
-    pointer-events:none;
-}
-
-*/

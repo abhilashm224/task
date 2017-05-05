@@ -1,6 +1,6 @@
 import { TaskManagePage } from './app.po';
 
-describe('lnp-app App', () => {
+describe('task-manager App', () => {
   let page: TaskManagePage;
 
   beforeEach(() => {
