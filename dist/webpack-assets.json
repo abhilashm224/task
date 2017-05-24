@@ -1,12 +1,12 @@
 {
   "vendor": {
-    "js": "./vendor.abfc5fa9226cb170c5fd.js",
-    "css": "./vendor.css"
+    "js": "http://localhost:4200/vendor.js",
+    "css": "http://localhost:4200/vendor.css"
   },
   "app": {
-    "js": "./app.abfc5fa9226cb170c5fd.js"
+    "js": "http://localhost:4200/app.js"
   },
   "polyfills": {
-    "js": "./polyfills.abfc5fa9226cb170c5fd.js"
+    "js": "http://localhost:4200/polyfills.js"
   }
 }

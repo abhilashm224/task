@@ -12,3 +12,6 @@ import 'rxjs';
 import 'bootstrap/dist/css/bootstrap.css';
 //import 'bootstrap/dist/css/bootstrap-theme.css';
 //import './assets/css/bootstrap-theme.css';
+import './assets/css/nv.d3.min.css';
+import './assets/lib/d3.min.js';
+import './assets/lib/nv.d3.min.js';
