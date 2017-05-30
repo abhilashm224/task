@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 //import {LocationStrategy, HashLocationStrategy} from '@angular/common';
-
+import { AgmCoreModule } from 'angular2-google-maps/core';
 import { AlertModule } from 'ng2-bootstrap';
 
 import { SharedModule } from './shared/shared.module'
@@ -14,11 +14,15 @@ import { AppComponent } from './app.component';
 import { TmComponent } from './tm/tm.component';
 import { TmService } from './tm/tm.service';
 import {Settings} from './settings';
+import { MapComponent } from './map/map.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TmComponent
+    TmComponent,
+    MapComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +30,11 @@ import {Settings} from './settings';
     HttpModule,
     AppRoutingModule,
     SharedModule,
-    AlertModule.forRoot()
+    AlertModule.forRoot(),
+        AgmCoreModule.forRoot({
+     // apiKey: 'AIzaSyAowmYdY3dZwoe4qI1I_X8Ry-UPepb5dpA'        //old
+      apiKey : 'AIzaSyBFvRHfbUVDDTeuu0BaOdekrcdALUITdZE'   //google account :: gmail : tcsiassessor@gmail.com , password : tcs12345
+    })
   ],
   providers: [
     Settings,
