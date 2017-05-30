@@ -2,11 +2,10 @@ import { NgModule , Component} from '@angular/core';
 import { Routes, RouterModule , PreloadAllModules} from '@angular/router';
 
 import { TmComponent } from './tm/tm.component';
-import { BarChartComponent } from './bar-chart/bar-chart.component';
 
 const ROUTES: Routes = [
   { path: '', component: TmComponent },
-  { path: 'chart', component: BarChartComponent },
+  { path : 'chart', loadChildren: './+bar-chart#BarChartModule'},
   { path: ':status', component: TmComponent }
 ];
 

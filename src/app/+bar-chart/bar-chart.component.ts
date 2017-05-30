@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BarChartService } from './bar-chart.service'
+import { LoaderService } from '../shared/shared.service';
 
 declare let d3: any;
 
@@ -11,7 +13,10 @@ export class BarChartComponent implements OnInit {
   private options;
   private data;
 
-  constructor() { }
+  constructor(
+    private BarChartService : BarChartService,
+    private LoaderService : LoaderService
+  ) { }
 
   ngOnInit() {
 
@@ -85,4 +90,19 @@ export class BarChartComponent implements OnInit {
       }
     }
  }
+ 	getBarChartInfo() {
+
+		this.LoaderService.loading(true);
+		this.BarChartService.getBarChartInfo()
+			.subscribe(result => {
+				this.LoaderService.loading(false);
+				if(result.errors[0].errorcode) {
+          
+				} else {
+					let output = result.data;				
+				}
+				(error:any) => alert('Service Failed')
+			});
+
+		}
 }

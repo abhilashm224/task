@@ -1,4 +1,7 @@
 <main>
+  <alert  *ngIf="objAlert.show" [type]="objAlert.type" dismissOnTimeout="3000" (onClose)="onCloseAlert()" > {{objAlert.message}} </alert>
 <router-outlet></router-outlet>
+
+ <div [ngClass]="{'loading': loader.show}"></div>
 </main>
 

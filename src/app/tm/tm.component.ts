@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { TmService } from './tm.service';
+import { LoaderService } from '../shared/shared.service';
 
 @Component({
   selector: 'task-comp',
@@ -19,7 +20,8 @@ export class TmComponent implements OnInit {
 
   constructor(
     private tmService: TmService,   //service dependency injection
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private LoaderService : LoaderService
   ) { }
 
 /* component init method */
@@ -27,6 +29,7 @@ export class TmComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.status = (params['status'] != undefined) ? params['status'] : '';   //getting filter status
+      this.LoaderService.loading(false);
       this.getTasks(this.status);
     });
   }
@@ -37,6 +40,7 @@ export class TmComponent implements OnInit {
     return this.tmService.get(query).then(task => {
       this.tasks = task;
       this.taskCount = this.tasks.length;
+      this.LoaderService.loading(false);
     });
   }
 
