@@ -6,3 +6,32 @@
     color: #000;
     font-weight: bold;
 }
+.whiteClass {
+background-color: white;
+}
+.blueClass {
+background-color: blue;
+}
+.redClass {
+background-color: red;
+}
+
+.whiteClass button{
+background-color: white;
+}
+.blueClass button{
+background-color: blue;
+}
+.redClass button {
+background-color: red;
+}
+
+.whiteClass .list-heading {
+background-color: white;
+}
+.blueClass .list-heading {
+background-color: blue;
+}
+.redClass .list-heading {
+background-color: red;
+}

@@ -13,6 +13,9 @@ export class TmComponent implements OnInit {
   private taskCount;   
   private newTask;
   private status;
+  private whiteClass: boolean = true;
+  private redClass: boolean = false;
+  private blueClass: boolean = false;
 
   constructor(
     private tmService: TmService,   //service dependency injection
@@ -77,5 +80,22 @@ changeStatus (newStatus,id) {
     this.tmService.deleteAllTasks().then(() => {
       return this.getTasks();
     });
+  }
+  changeTheme(e) {
+    let color = e.currentTarget.textContent;
+    this.whiteClass = false;
+    this.redClass = false;
+    this.blueClass = false;
+    switch(color) {
+      case 'Red' : 
+        this.redClass = true;
+        break;
+      case 'White' : 
+        this.whiteClass = true;
+        break;
+      case 'Blue' : 
+        this.blueClass = true;
+        break;
+    }
   }
 }
