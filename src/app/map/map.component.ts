@@ -27,7 +27,7 @@ export class MapComponent {
 
  	ngOnInit() {
 	  console.log('map component loaded..');
-      this.getUserLocation();
+      //this.getUserLocation();
 	}
     resize(): void {
         this.sebmGoogleMap.triggerResize();

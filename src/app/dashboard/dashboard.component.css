@@ -15,7 +15,7 @@
   /*  display: none;*/
 }
 .sebm-google-map-container {
-  height: 100%;
+  height: 300px;
 }
 #map-content {
   position: absolute;

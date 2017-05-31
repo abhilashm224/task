@@ -8,6 +8,7 @@ import { AlertModule } from 'ng2-bootstrap';
 
 import { SharedModule } from './shared/shared.module'
 import { AlertService ,LoaderService} from './shared/shared.service';
+import {AuthGuardService} from './auth-guard.service';
 
 import { AppRoutingModule } from './app.routes';
 import { AppComponent } from './app.component';
@@ -31,12 +32,13 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     AppRoutingModule,
     SharedModule,
     AlertModule.forRoot(),
-        AgmCoreModule.forRoot({
+    AgmCoreModule.forRoot({
      // apiKey: 'AIzaSyAowmYdY3dZwoe4qI1I_X8Ry-UPepb5dpA'        //old
       apiKey : 'AIzaSyBFvRHfbUVDDTeuu0BaOdekrcdALUITdZE'   //google account :: gmail : tcsiassessor@gmail.com , password : tcs12345
     })
   ],
   providers: [
+    AuthGuardService,
     Settings,
     TmService,
     AlertService,
